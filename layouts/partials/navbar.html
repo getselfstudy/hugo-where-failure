@@ -23,6 +23,7 @@
         <ul>
             {{ $match := printf "%s" "yes" }}
             {{ $items := where .Site.Pages "Params.where" $match }}
+            {{ warnf "TEST %v %v" $match $items }}
             {{ range $items }}
                 <li>Found {{ .RelPermalink }}</li>
             {{ end }}
@@ -31,6 +32,7 @@
         <ul>
             {{ $match := delimit (slice "yes") "" }}
             {{ $items := where .Site.Pages "Params.where" $match }}
+            {{ warnf "TEST2 %v %v" $match $items }}
             {{ range $items }}
                 <li>Found {{ .RelPermalink }}</li>
             {{ end }}
